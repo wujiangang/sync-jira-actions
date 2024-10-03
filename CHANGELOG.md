@@ -14,17 +14,19 @@
 </div>
 <hr>
 
-## Unreleased
+## v0.2.0 (2024-10-03)
 
 ### ✨ New features
 
-- **action**: updated this action from Docker to Composite type *(Tomas Sebestik - 385fb14)*
+- **action**: updated this action from Docker to Composite type *(Tomas Sebestik - 278db39)*
+
+### 🐛 Bug fixes
+
+- **action**: fix empty input for JIRA_PROJECT *(Tomas Sebestik - 0b1dd88)*
 
 ### 📖 Documentation
 
-- **caller-workflow**: add caller workflow for easy copy to target repo *(Tomas Sebestik - 7f5c835)*
-
----
+- **caller-workflow**: add caller workflow for easy copy to target repo *(Tomas Sebestik - 8c27453)*
 
 ## v0.1.1 (2024-02-14)
 
