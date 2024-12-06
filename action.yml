@@ -35,10 +35,10 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Checkout action repository (espressif/sync-jira-actions)
+    - name: Checkout action repository (wujiangang/sync-jira-actions)
       uses: actions/checkout@v4
       with:
-        repository: espressif/sync-jira-actions
+        repository: wujiangang/sync-jira-actions
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -76,5 +76,5 @@ runs:
         JIRA_USER: ${{ env.JIRA_USER }} # Needs to be passed from caller workflow; by ENV (secure), not by input
         INPUT_CRON_JOB: ${{ github.event_name == 'schedule' && 'true' || '' }}
         JIRA_PROJECT: ${{ inputs.jira-project != '' && inputs.jira-project || env.JIRA_PROJECT }} # Try input, fallback to env
-        JIRA_COMPONENT: ${{ inputs.jira-component || env.JIRA_COMPONENT }} # Try input, fallback to env
-        JIRA_ISSUE_TYPE: ${{ inputs.jira-issue-type || env.JIRA_COMPONENT }}  # Try input, fallback to env
+        JIRA_COMPONENT: ${{ env.JIRA_COMPONENT || inputs.jira-component }} # Try env, fallback to input
+        JIRA_ISSUE_TYPE: ${{ env.JIRA_ISSUE_TYPE || inputs.jira-issue-type }}  # Try env, fallback to input
